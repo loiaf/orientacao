@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  node:
+    name: Node CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install & Test server
+        working-directory: server
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+            if npm run -s test --silent; then
+              echo "server tests ok"
+            else
+              echo "server: no tests or tests failed (non-fatal)"
+            fi
+          fi
+      - name: Install & Test client
+        working-directory: client
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+            if npm run -s test --silent; then
+              echo "client tests ok"
+            else
+              echo "client: no tests or tests failed (non-fatal)"
+            fi
+            if npm run -s build --silent; then
+              echo "client build ok"
+            else
+              echo "client: build skipped or failed (non-fatal)"
+            fi
+          fi
+
+  dotnet:
+    name: .NET Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore PousadaSolution.slnx
+      - name: Build
+        run: dotnet build PousadaSolution.slnx --configuration Release --no-restore

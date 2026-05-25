@@ -7,7 +7,7 @@
     "importar": "node index.js importar",
     "server": "node --watch server/index.js",
     "client": "npm --prefix client run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently --shell cmd.exe \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "dotenv": "^17.4.2",
