@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Pousada.Application/Pousada.Application.csproj" />
+  <Project Path="Pousada.Blazor/Pousada.Blazor.csproj" />
+  <Project Path="Pousada.ConsoleApp/Pousada.ConsoleApp.csproj" />
+  <Project Path="Pousada.Domain/Pousada.Domain.csproj" />
+  <Project Path="Pousada.Infrastructure/Pousada.Infrastructure.csproj" />
+</Solution>
