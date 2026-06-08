@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="OcorrenciasEscolares.ConsoleApp/OcorrenciasEscolares.ConsoleApp.csproj" />
+  <Project Path="OcorrenciasEscolares.Domain/OcorrenciasEscolares.Domain.csproj" />
   <Project Path="Pousada.Application/Pousada.Application.csproj" />
   <Project Path="Pousada.Blazor/Pousada.Blazor.csproj" />
   <Project Path="Pousada.ConsoleApp/Pousada.ConsoleApp.csproj" />

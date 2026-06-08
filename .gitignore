@@ -4,3 +4,14 @@ data/
 .wwebjs_auth/
 .wwebjs_cache/
 .superpowers/
+.vscode/
+
+# .NET artifacts
+bin/
+obj/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.ide
